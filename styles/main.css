@@ -1,6 +1,27 @@
-* , ::after, ::before { /* reset some default styles */
+@charset "UTF-8";
+@import url("variables.css");
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=VT323&display=swap');
+
+
+/* reset some default styles */
+* , ::after, ::before {
     margin: 0;
     padding: 0;
     list-style-type: none;
-    
+    box-sizing: border-box;
+    font-family: 'VT323', 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    outline: none;
 }
+
+body {
+    background-color: var(--black);
+}
+
+::selection {
+    background-color: var(--light-green);
+    color: var(--black);
+}
+
+
+
+
