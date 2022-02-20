@@ -111,6 +111,7 @@ table, th, td:not(.error-row) {
 
 td > [type=checkbox] {
     display: block;
+    margin: 0 auto;
 }
 td > button {
     width: 100%;
