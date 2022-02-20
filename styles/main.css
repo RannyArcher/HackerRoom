@@ -11,10 +11,27 @@
     box-sizing: border-box;
     font-family: 'VT323', 'IBM Plex Mono', 'Courier New', Courier, monospace;
     outline: none;
+    font-size: 20px;
 }
 
+
 body {
-    background-color: var(--black);
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/hacker-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, transparent, var(--black));
 }
 
 ::selection {
@@ -25,3 +42,79 @@ body {
 
 
 
+/* input styling */
+
+::placeholder, input, textarea {
+    color: var(--light-green);
+}
+button {
+    cursor: pointer;
+    color: var(--light-green);
+    transition: .3s ease-in-out;
+}
+button:hover {
+    color: var(--black);
+    background-color: var(--light-green);
+    transition: .3s ease-in-out;
+}
+input, textarea, button {
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+}
+
+
+
+/* login page */
+form {
+    width: 35%;
+    position: relative;
+    z-index: 12;
+}
+
+
+
+table, td > input:not([type=checkbox]) {
+    width: 100%;
+}
+.label-container {
+    padding: 10px 0;
+}
+table, th, td:not(.error-row) {
+    border: 1px solid var(--light-green);
+    border-collapse: collapse;
+}
+
+
+
+.login-title {
+    background-color: var(--light-green);
+    padding: 20px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+
+
+td > [type=checkbox] {
+    display: block;
+}
+td > button {
+    width: 100%;
+}
+
+
+
+label {
+    color: var(--light-green);
+    vertical-align: center;
+    margin-left: 10px;
+}
+
+
+
+.error-paragraph {
+    color: var(--dark-red);
+    margin: 10px 0;
+    text-align: center;
+}

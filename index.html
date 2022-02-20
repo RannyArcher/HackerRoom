@@ -10,6 +10,28 @@
         <title>Hacker Room - Chat With Special People!</title>
     </head>
     <body>
-        
+        <form method="POST">
+            <table>
+                <tr>
+                    <td colspan="3" class="login-title">
+                        <h2>Hi... Time to say godbye!</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-container"><label>Full Name: </label></td>
+                    <td colspan="2"><input type="text" name="fullname" placeholder="Enter your full name..." required></td>
+                </tr>
+                <tr>
+                    <td class="label-container"><label>Nickname: </label></td>
+                    <td colspan="2"><input type="text" name="username" placeholder="Enter your nickname..." required></td>
+                </tr>
+                <tr>
+                    <td class="label-container"><label>Leet Chars</label></td>
+                    <td><input type="checkbox" name="leet" style="margin: 0 auto;"></td>
+                    <td><button>Login</button></td>
+                </tr>
+            </table>
+            <p class="error-paragraph"></p>
+        </form>
     </body>
 </html>
