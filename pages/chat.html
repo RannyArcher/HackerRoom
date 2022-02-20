@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <link rel="stylesheet" href="../styles/main.css">
+        <script defer src="scripts/main.js"></script>
+        <title>N0N3!</title>
+    </head>
+    <body class="chat">
+        <div class="container">
+            <div class="interface-row">
+                <div class="messages-container-col hidden-scrollbar" id="messages">
+                    <div class="message-row">
+                        <div class="sender-info">NAME &lt;NICK&gt;: </div>
+                        <div class="message">message goes here.</div>
+                    </div>
+                    <div class="message-row mine">
+                        <div class="message">this is my message</div>
+                    </div>
+                    <div class="welcome-message">USER HAS JOIN THE ROOM.</div>
+                </div>
+                <div class="online-users-col hidden-scrollbar">
+                    <h2 class="online-users-header">ONLINE USERS:</h2>
+                    <div class="online-users-container">
+                        <div class="online-user">USER NAME</div>
+                    </div>
+                </div>
+                    
+            </div>
+            <form  class="form-row">
+                <input name="message" placeholder="Message them..." class="message-input">
+                <button class="send-btn">Send</button>
+            </form>
+        </div>
+    </body>
+</html>

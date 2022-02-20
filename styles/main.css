@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url("variables.css");
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
 
 
 /* reset some default styles */
@@ -9,13 +9,25 @@
     padding: 0;
     list-style-type: none;
     box-sizing: border-box;
-    font-family: 'VT323', 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    font-family: 'IBM Plex Mono', 'Courier New', 'Ubuntu Mono', Courier, monospace;
     outline: none;
     font-size: 20px;
+    scroll-behavior: smooth;
+}
+
+/* these .hidden-scrollbar are making scrollbar hidden but still work */
+.hidden-scrollbar::-webkit-scrollbar {
+    width: 0 !important;
+    scrollbar-width: thin;
+}
+.hidden-scrollbar {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: thin;
 }
 
 
-body {
+body.login {
     height: 100vh;
     width: 100vw;
     background-image: url("../images/hacker-background.jpg");
@@ -26,7 +38,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-body::after {
+body.login::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -52,7 +64,7 @@ button {
     color: var(--light-green);
     transition: .3s ease-in-out;
 }
-button:hover {
+button:hover, .send-btn {
     color: var(--black);
     background-color: var(--light-green);
     transition: .3s ease-in-out;
@@ -61,6 +73,7 @@ input, textarea, button {
     background-color: transparent;
     padding: 10px;
     border: none;
+    resize: none;
 }
 
 
@@ -87,7 +100,7 @@ table, th, td:not(.error-row) {
 
 
 
-.login-title {
+.login-title, .online-users-header {
     background-color: var(--light-green);
     padding: 20px;
     text-align: center;
@@ -117,4 +130,112 @@ label {
     color: var(--dark-red);
     margin: 10px 0;
     text-align: center;
+}
+
+
+
+
+
+
+
+/* styling chat page */
+body.chat {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/matrix.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+}
+body.chat::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.95);
+}
+
+.container {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+
+
+
+.interface-row, .form-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.interface-row {
+    /* overflow: hidden; */
+    border-bottom: 1px var(--light-green) solid;
+}
+
+.interface-row, .messages-container-col, .message-input {
+    flex: 1;
+}
+
+.message-row {
+    color: var(--light-green);
+    display: flex;
+    padding: 10px;
+}
+.mine {
+    flex-direction: row-reverse;
+    padding-right: 20px;
+}
+.sender-info {
+    font-weight: bolder;
+    padding-right: 15px;
+    min-width: 150px;
+    text-align: center;
+}
+.welcome-message {
+    color: var(--dark-red);
+    font-size: 90%;
+    text-align: center;
+}
+   
+
+
+
+
+.online-users-col, .online-users-container {
+    display: flex;
+    flex-direction: column;
+}
+.online-users-col {
+    flex: 1;
+    min-width: 170px;
+    max-width: 200px;
+    border-left: 1px var(--light-green) solid;
+}
+.messages-container-col, .interface-row, .online-users-col {
+    overflow: auto;
+}
+.online-user {
+    padding: 10px 15px;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--light-green);
+    border-bottom: 1px solid var(--light-green);
+
+}
+
+
+
+
+
+.send-btn {
+    min-width: 100px;
 }

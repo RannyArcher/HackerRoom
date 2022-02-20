@@ -1,6 +1,5 @@
 html {
-    --pixel-font-name: 'VT323';
-    --simple-font-name: 'IBM Plex Mono';
+    --font-name: 'IBM Plex Mono';
     --light-green: #0dfd0d;
     --dark-green: #12db12;
     --black: #090909;
