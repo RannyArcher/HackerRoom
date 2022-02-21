@@ -63,8 +63,8 @@ body.login::after {
 button, .btn {
     cursor: pointer;
     color: var(--light-green);
-    transition: .3s ease-in-out;
     padding: 25px;
+    transition: .3s ease-in-out;
 }
 button:hover, .btn:hover {
     color: var(--black);
@@ -150,6 +150,8 @@ body.chat {
     background-size: cover;
     position: relative;
     display: flex;
+    min-width: 300px;
+    max-width: 1280px;
 }
 body.chat::after {
     content: "";
@@ -183,6 +185,9 @@ body.chat::after {
     font-weight: bold;
     background-color: var(--light-green);
     color: var(--black);
+}
+.btn.logout {
+    border-bottom: 1px solid var(--light-green);
 }
 
 
@@ -263,3 +268,21 @@ body.chat::after {
 }
 
 
+
+
+
+
+
+
+
+/* styles for small screens */
+@media all and (max-width: 720px) {
+    *, ::after, ::before {
+        font-size: 16px;
+    }
+    /* styles for login page */
+    /* styling for chat page */
+    .online-users-col, .online-users-header {
+        display: none;
+    }
+}
