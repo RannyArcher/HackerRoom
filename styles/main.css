@@ -11,8 +11,9 @@
     box-sizing: border-box;
     font-family: 'IBM Plex Mono', 'Courier New', 'Ubuntu Mono', Courier, monospace;
     outline: none;
-    font-size: 20px;
+    font-size: 18px;
     scroll-behavior: smooth;
+    text-decoration: none;
 }
 
 /* these .hidden-scrollbar are making scrollbar hidden but still work */
@@ -59,12 +60,13 @@ body.login::after {
 ::placeholder, input, textarea {
     color: var(--light-green);
 }
-button {
+button, .btn {
     cursor: pointer;
     color: var(--light-green);
     transition: .3s ease-in-out;
+    padding: 25px;
 }
-button:hover, .send-btn {
+button:hover, .btn:hover {
     color: var(--black);
     background-color: var(--light-green);
     transition: .3s ease-in-out;
@@ -100,7 +102,7 @@ table, th, td:not(.error-row) {
 
 
 
-.login-title, .online-users-header {
+.login-title, .online-users-header, .welcome {
     background-color: var(--light-green);
     padding: 20px;
     text-align: center;
@@ -168,6 +170,22 @@ body.chat::after {
 
 
 
+.nav-row {
+    display: flex;
+    flex-direction: row;
+}
+.nav-row > * {
+    display: flex;
+    align-items: center;
+}
+.welcome {
+    flex: 1;
+    font-weight: bold;
+    background-color: var(--light-green);
+    color: var(--black);
+}
+
+
 
 .interface-row, .form-row {
     display: flex;
@@ -186,34 +204,48 @@ body.chat::after {
 .message-row {
     color: var(--light-green);
     display: flex;
-    padding: 10px;
+    padding: 10px 0 0;
+    align-items: center;
 }
 .mine {
     flex-direction: row-reverse;
-    padding-right: 20px;
+    padding: 10px 10px 0 0;
+}
+.message {
+    color: var(--black);
+    background-color: var(--light-green);
+    padding: 5px;
+    border-radius: 5px;
+}
+.mine > .message {
+    background-color: var(--dark-green);
+    border-bottom-right-radius: 0;
+}
+.sender-info + .message {
+    border-bottom-left-radius: 0;
 }
 .sender-info {
     font-weight: bolder;
-    padding-right: 15px;
-    min-width: 150px;
-    text-align: center;
+    font-size: 15px;
+    padding: 0 10px 0 5px;
 }
-.welcome-message {
+.server-message {
     color: var(--dark-red);
-    font-size: 90%;
     text-align: center;
+    font-size: 70%;
+    font-weight: bold;
+    padding-top: 10px;
 }
    
 
 
 
 
-.online-users-col, .online-users-container {
+.online-users-col {
     display: flex;
     flex-direction: column;
 }
-.online-users-col {
-    flex: 1;
+.online-users-col, .online-users-header {
     min-width: 170px;
     max-width: 200px;
     border-left: 1px var(--light-green) solid;
@@ -225,18 +257,9 @@ body.chat::after {
     padding: 10px 15px;
     text-align: center;
     text-transform: uppercase;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     color: var(--light-green);
     border-bottom: 1px solid var(--light-green);
 
 }
 
 
-
-
-
-.send-btn {
-    min-width: 100px;
-}
