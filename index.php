@@ -65,7 +65,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="label-container"><label>Full Name: </label></td>
+                    <td class="label-container"><label>Fullname: </label></td>
                     <td colspan="2"><input type="text" name="fullname" placeholder="Enter your full name..." required></td>
                 </tr>
                 <tr>
@@ -73,7 +73,7 @@
                     <td colspan="2"><input type="text" name="nickname" placeholder="Enter your nickname..." required></td>
                 </tr>
                 <tr>
-                    <td class="label-container"><label>Leet Chars</label></td>
+                    <td class="label-container"><label>Leet</label></td>
                     <td><input type="checkbox" name="leet" value="true"></td>
                     <td><button name="login" value="OK">Login</button></td>
                 </tr>
