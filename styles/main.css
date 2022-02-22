@@ -52,6 +52,9 @@ body.login::after {
     background-color: var(--light-green);
     color: var(--black);
 }
+::placeholder {
+    font-size: 14px;
+}
 
 
 
@@ -82,7 +85,7 @@ input, textarea, button {
 
 
 /* login page */
-form {
+body.login > form {
     max-width: 350px;
     position: relative;
     z-index: 12;
@@ -94,7 +97,7 @@ table, td > input:not([type=checkbox]) {
     width: 100%;
 }
 .label-container {
-    padding: 10px 0;
+    padding: 10px 15px;
 }
 table, th, td:not(.error-row) {
     border: 1px solid var(--light-green);
@@ -124,8 +127,6 @@ td > button {
 
 label {
     color: var(--light-green);
-    vertical-align: center;
-    margin-left: 10px;
 }
 
 
@@ -235,13 +236,7 @@ body.chat::after {
     font-size: 15px;
     padding: 0 10px 0 5px;
 }
-.server-message {
-    color: var(--dark-red);
-    text-align: center;
-    font-size: 70%;
-    font-weight: bold;
-    padding-top: 10px;
-}
+
    
 
 
@@ -252,6 +247,7 @@ body.chat::after {
     flex-direction: column;
 }
 .online-users-col, .online-users-header {
+    flex: 1;
     min-width: 170px;
     max-width: 200px;
     border-left: 1px var(--light-green) solid;

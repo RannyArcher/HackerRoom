@@ -9,24 +9,21 @@
         exit;
     }
     elseif ( isset($_POST["login"]) ){
-        if ( isset($_POST["fullname"]) and isset($_POST["nickname"]) ){
+        if ( isset($_POST["fullname"]) ){
             $fullname = $_POST["fullname"];
-            $nickname = isset($_POST["leet"]) ? strtr($_POST["nickname"], 'letsoa', '137504') : $_POST["nickname"];
+            $nickname = isset($_POST["leet"]) ? strtr($_POST["fullname"], 'letsoa', '137504') : $_POST["fullname"];
             
             $fullname = htmlspecialchars($fullname);
             $nickname = htmlspecialchars($nickname);
             
-            // the credentials are imported in the first line
-            $db = new mysqli($db_host, $db_user, $db_pass, "HackerRoom");
             
             if (!(getUserRow($db, $fullname, $nickname)->num_rows)) {
                 // creating account if the user is not already exist in the database
-                $q = $db->prepare("INSERT INTO users (fullname, nickname) VALUES (?, ?)");
-                $q->bind_param('ss', $fullname, $nickname);
+                $q = $db->prepare("INSERT INTO users (fullname) VALUES (?)");
+                $q->bind_param('s', $fullname);
                 $q->execute();
-                $error_message = "user doesn't exist, we create it for you ;D";
 
-                $user_row = getUserRow($db, $fullname, $nickname)->fetch_assoc();
+                $user_row = getUserRow($db, $fullname)->fetch_assoc();
                 $_SESSION["USER_ID"] = $user_row['id'];
                 redirect("HackerRoom/pages/chat.php");
                 exit;
@@ -53,7 +50,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <link rel="stylesheet" href="styles/main.css">
-        <script defer src="scripts/main.js"></script>
         <title>Hacker Room - Chat With Special People!</title>
     </head>
     <body class="login">
@@ -67,10 +63,6 @@
                 <tr>
                     <td class="label-container"><label>Fullname: </label></td>
                     <td colspan="2"><input type="text" name="fullname" placeholder="Enter your full name..." required></td>
-                </tr>
-                <tr>
-                    <td class="label-container"><label>Nickname: </label></td>
-                    <td colspan="2"><input type="text" name="nickname" placeholder="Enter your nickname..." required></td>
                 </tr>
                 <tr>
                     <td class="label-container"><label>Leet</label></td>
