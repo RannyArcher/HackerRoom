@@ -6,7 +6,6 @@
 
     if ( isset($_SESSION['USER_ID']) ) {
         $output = "";
-        $USER_FULLNAME = $db->query("SELECT fullname FROM users WHERE id = {$_SESSION['USER_ID']}")->fetch_row()[0];
         
         $q = $db->prepare("SELECT * FROM messages WHERE messageid > ? ORDER BY messageid");
         $q->bind_param('i', $_SESSION['LAST_MESSAGE_ID']);
@@ -17,6 +16,9 @@
             if ($row['senderid'] !== $_SESSION['USER_ID']) {
                 // in case the current user was not the message owner, the owner's name will be present
                 // and the message will be at the left of the screen
+
+                // getting fullname of senderid
+                $USER_FULLNAME = $db->query("SELECT fullname FROM users WHERE id = {$row['senderid']}")->fetch_row()[0];
                 $output .= '<div class="message-row">
                                 <div class="sender-info">&lt;' . $USER_FULLNAME .'&gt;: </div>
                                 <div class="message">'. $row['message'] .'</div>
