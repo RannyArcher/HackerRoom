@@ -9,6 +9,8 @@ setInterval(() => {
         }).then((d) => {
             if (d !== "") {
                 messagesSection.innerHTML += d
+
+                messagesSection.scrollTo(0, messagesSection.clientHeight)
             }
         })
 }, 500)

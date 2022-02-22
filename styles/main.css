@@ -207,12 +207,17 @@ body.chat::after {
 .interface-row, .messages-container-col, .message-input {
     flex: 1;
 }
+.messages-container-col {
+    padding-bottom: 10px;
+}
 
 .message-row {
     color: var(--light-green);
     display: flex;
     padding: 10px 0 0;
     align-items: center;
+    word-break: break-word;
+    hyphens: auto;
 }
 .mine {
     flex-direction: row-reverse;
