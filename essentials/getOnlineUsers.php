@@ -17,7 +17,7 @@
         echo "{$output}";
     }
     else {
-        redirect("HackerRoom/index.php");
+        redirect("index.php");
     }
 
 

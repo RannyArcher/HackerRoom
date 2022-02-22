@@ -5,7 +5,7 @@
     $error_message = "";
     if ( isset($_SESSION["USER_ID"]) ) {
         // redirect the user to chat page in case the user_id variable exists
-        redirect("HackerRoom/pages/chat.php");
+        redirect("pages/chat.php");
         exit;
     }
     elseif ( isset($_POST["login"]) ){
@@ -25,7 +25,7 @@
 
                 $user_row = getUserRow($db, $fullname)->fetch_assoc();
                 $_SESSION["USER_ID"] = $user_row['id'];
-                redirect("HackerRoom/pages/chat.php");
+                redirect("pages/chat.php");
                 exit;
 
             }

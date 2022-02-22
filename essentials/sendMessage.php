@@ -3,7 +3,7 @@
     include_once "../essentials/functions.php";
     include_once "../essentials/db.conf.php";
 
-    if ( isset($_SESSION['USER_ID']) and isset($_POST['message']) ) {
+    if ( isset($_SESSION['USER_ID']) and (isset($_POST['message']) and $_POST['message'] !== "") ) {
         $message = htmlspecialchars($_POST['message']);
 
         // entering the message into database
@@ -13,6 +13,6 @@
 
     }
     else {
-        redirect("HackerRoom/index.php");
+        redirect("index.php");
     }
 ?>
