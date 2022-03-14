@@ -1,15 +1,15 @@
 <?php
     session_start();
-    include_once "../essentials/functions.php";
-    include_once "../essentials/db.conf.php";
+    require_once "../essentials/functions.php";
 
-    if ( isset($_SESSION['USER_ID']) ) {
-        $USER_ID = $_SESSION['USER_ID'];
-        delUserRow($db, $_SESSION['USER_ID']);
+    if ( isset($_SESSION['CURRENT_USER_ID']) ) {
+
+        removeUserRow($_SESSION['CURRENT_USER_ID']);
         $db->close();
         session_destroy();
+
     }
 
-    redirect("index.php");
+    redirect("/");
     exit;
 ?>
